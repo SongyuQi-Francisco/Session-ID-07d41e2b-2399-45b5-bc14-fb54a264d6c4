@@ -22,13 +22,14 @@
     }
   },
   "include": [
-    "src/**/*"
+    "src/**/*.ts",
+    "src/**/*.js"
   ],
   "exclude": [
     "node_modules",
     "dist",
-    ".git",
     "tests/**/*",
-    "*.config.ts"
+    "*.config.ts",
+    "jest.config.ts"
   ]
 }
