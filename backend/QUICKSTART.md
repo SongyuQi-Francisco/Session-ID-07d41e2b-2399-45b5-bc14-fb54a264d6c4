@@ -159,6 +159,39 @@ curl -X POST "http://localhost:3001/api/ai/generate-concepts?save=true" \
   }'
 ```
 
+#### 3.3 编辑知识点卡片
+```bash
+# 获取单个知识点卡片详情
+curl -X GET http://localhost:3001/api/cards/YOUR_CARD_ID \
+  -H "Authorization: Bearer YOUR_TOKEN"
+
+# 完整更新知识点卡片（支持编辑名称、内容等所有字段）
+curl -X PUT http://localhost:3001/api/cards/YOUR_CARD_ID \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "更新后的知识点名称",
+    "summary": "更新后的摘要",
+    "content": "更新后的详细内容",
+    "courseId": "YOUR_COURSE_ID",
+    "difficulty": "advanced",
+    "tags": ["标签1", "标签2"]
+  }'
+
+# 部分更新知识点卡片（如仅更新名称或难度）
+curl -X PATCH http://localhost:3001/api/cards/YOUR_CARD_ID \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "新的知识点名称",
+    "difficulty": "expert"
+  }'
+
+# 删除知识点卡片
+curl -X DELETE http://localhost:3001/api/cards/YOUR_CARD_ID \
+  -H "Authorization: Bearer YOUR_TOKEN"
+```
+
 ### 4. 学习进度跟踪
 
 #### 4.1 更新知识点掌握状态
